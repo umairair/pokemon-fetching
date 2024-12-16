@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href='styles.css'> 
+    <title>CHARMINDER</title>
+</head>
+
+<body>
+    <h1 class="header-text">Current CHARMINDER</h1>
+    <main>
+        <div class="content"></div>
+        <button class="fetch-pokemon">get a pokemon</button>
+
+    </main>
+    
+</body>
+</html>
+<script>
+
+    let button = document.querySelector(".fetch-pokemon")
+    const charminding = async ()=>{
+
+        const existingElement = document.querySelector(".pokemon-image")
+        let targetElement = document.getElementsByClassName("content")[0]
+        let imageElement = document.createElement("img")
+        imageElement.classList.add("pokemon-image")
+        let id = Math.floor(Math.random() * 100)
+        let data;
+        
+        try {        
+            let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+            data = await response.json()
+            
+            
+            
+            
+            
+        }
+        catch(error) {
+            console.log(error)
+        }
+        
+        if(data) {
+            if(existingElement) {
+                existingElement.remove()
+            }
+            imageElement.setAttribute("src", data["sprites"]["front_default"]) 
+            targetElement.append(imageElement)
+        }
+        
+        
+        
+    }
+    button.addEventListener("click", charminding)
+
+</script>

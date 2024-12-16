@@ -1,0 +1,5 @@
+/* selecting html class to manipulate with css, denoted <h1 class='header-text' in html, YOU USE A DOT> */
+.header-text {
+    color:orange;
+
+}
