@@ -1,5 +1,64 @@
-/* selecting html class to manipulate with css, denoted <h1 class='header-text' in html, YOU USE A DOT> */
-.header-text {
-    color:orange;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+
+
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+.content-box {
+    background-color: white; 
+    width: 210px;
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    border: 20px solid pink;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+.content {
+    color: lightsalmon;
+    font-size: 1.5rem;
+    margin-bottom: 10px; 
+}
+
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:#d9f2e6;
+    border: 5vw solid pink; 
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    font-family: "Roboto", sans-serif;
+}
+
+.fetch-pokemon {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

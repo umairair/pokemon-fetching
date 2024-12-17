@@ -2,13 +2,19 @@
 <html>
 <head>
     <link rel="stylesheet" href='styles.css'> 
-    <title>CHARMINDER</title>
+    <title>POKEMON FETCH!</title>
 </head>
 
 <body>
-    <h1 class="header-text">Current CHARMINDER</h1>
+    <h1 class="header-text">CURRENT POKEMON</h1>
+    
     <main>
-        <div class="content"></div>
+        <div class="content-box">
+
+            <h3 class="content"></h3>
+            <div class="poke-image"></div>
+        </div>
+
         <button class="fetch-pokemon">get a pokemon</button>
 
     </main>
@@ -20,36 +26,31 @@
     let button = document.querySelector(".fetch-pokemon")
     const charminding = async ()=>{
 
-        const existingElement = document.querySelector(".pokemon-image")
-        let targetElement = document.getElementsByClassName("content")[0]
+        const existingImgElement = document.querySelector(".pokemon-image")
+        let targetImgElement = document.getElementsByClassName("poke-image")
+        let targetTextElement = document.getElementsByClassName("content")
         let imageElement = document.createElement("img")
         imageElement.classList.add("pokemon-image")
-        let id = Math.floor(Math.random() * 100)
+        let id = Math.floor(Math.random() * 100) + 1
         let data;
         
         try {        
             let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
             data = await response.json()
-            
-            
-            
-            
-            
         }
         catch(error) {
             console.log(error)
         }
-        
         if(data) {
-            if(existingElement) {
-                existingElement.remove()
+            if(existingImgElement) {
+                existingImgElement.remove()
             }
             imageElement.setAttribute("src", data["sprites"]["front_default"]) 
-            targetElement.append(imageElement)
+            
+            targetTextElement[0].textContent = data["name"]
+            targetImgElement[0].append(imageElement)
+            
         }
-        
-        
-        
     }
     button.addEventListener("click", charminding)
 
